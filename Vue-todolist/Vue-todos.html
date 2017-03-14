@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue-todos</title>
+	<link rel="stylesheet" type="text/css" href="Vue-todos.css">
+</head>
+<body>
+	<div id="todo">
+
+		<div class="title">todos</div>
+		<input class="todo-list-input-checkbox" type="checkbox" v-model="isAllSelected" @click="toggleSelectorAll">
+		<div class="todo-list-input">
+			<input class="todo-list-input-textarea" type="text" v-model="todoInput" @keyup.enter="addTodo" placeholder="What needs to be done?">
+		</div>
+		<ul class="todo-text-lists">
+			<li :class="{done: todo.isDone}" v-for="(todo, index) in currentShowingTodos">
+				<input id="checkbox-list" class="todo-text-list-checkbox" type="checkbox" v-model="todo.isDone">
+				<label class="todo-text-list-checkbox-diy" for="checkbox-list"></label>
+				<span class="todo-text-list-textarea" v-show="!todo.isEditing" @dblclick="todo.isEditing = true">{{todo.content}}</span>
+				<input class="checkbox-primary" v-show="todo.isEditing" @keyup.enter="todo.isEditing = false" @mouseover="$event.target.select()" @blur="todo.isEditing = false" type="text" v-model="todo.content">
+				<div class="todo-text-list-delbtn" @click="delTodo(index)"></div>
+			</li>
+		</ul>
+		<div class="todo-footer">
+			<span class="todo-fooder-count">{{unDoneCount}} {{unDoneCount < 2 ? 'items' : 'items'}} left</span>
+			<ul>
+				<li :class="{selected:showing == 'all'}" @click="showing='all'">All</li>
+				<li :class="{selected:showing == 'active'}" @click="showing='active'">Active</li>
+				<li :class="{selected:showing == 'completed'}" @click="showing='completed'">Completed</li>
+			</ul>
+			<span v-show="haveCompleted" @click="clearAllCompleted">Clear completed</span>
+		</div>
+	</div>
+</body>
+<script src="vue.js"></script>
+<script>
+	var app = new Vue({
+		el: '#todo',
+		data: {
+			todoInput: '',
+			todos: [
+			// {
+			// 	isDone: false,
+			// 	isEditing: false,
+			// 	content: 'feed cats'
+			// }
+			],
+			showing: 'all'
+		},
+		computed: {
+			isAllSelected: function() {
+				return !this.currentShowingTodos.every(it => !it.isDone)
+			},
+			unDoneCount: function() {
+				return this.todos.filter(it => !it.isDone).length
+			},
+			currentShowingTodos: function() {
+				if (this.showing == 'all') {
+					return this.todos 
+				}
+				if (this.showing == 'active') {
+					return this.todos.filter(it => it.isDone == false)
+				}
+				if (this.showing == 'completed') {
+					return this.todos.filter(it => it.isDone == true)
+				}
+			},
+			haveCompleted: function() {
+				return this.todos.some(it => it.isDone == true)
+			}
+		},
+		methods: {
+			addTodo: function() {
+				this.todos.push({
+					isDone: false,
+					content: this.todoInput
+				})
+				this.todoInput = ''
+			},
+			toggleSelectorAll: function() {
+				if (this.isAllSelected) {
+					this.todos.forEach(it => it.isDone = false)
+				} else {
+					this.todos.forEach(it => it.isDone = true)
+				}
+			},
+			clearAllCompleted: function() {
+				this.todos = this.todos.filter(it => it.isDone == false)
+			},
+			delTodo: function(index) {
+				this.todos.splice(index, 1)
+			}
+		}
+	})
+</script>
+</html>
