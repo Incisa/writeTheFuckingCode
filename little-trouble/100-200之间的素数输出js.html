@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// debugger;
+
+	
+	for (var i = 100; i <= 200; i++ ) {
+		var a = 0
+		for (var j = 2; j < parseInt(Math.sqrt(i)); j++) {
+			(i % j == 0) && ++a;
+		}
+		(a == 0) && console.log(i)
+	}
+	</script>
+</body>
+</html>

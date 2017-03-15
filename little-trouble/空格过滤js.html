@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 题目：空格过滤：
+		 * 输入：“   Hello      world.This is    c language.   ”
+		 * 输出：Hello world.This is c language.
+		 */
+		
+		var textString = "   Hello      world.This is    c language.   "
+		var textScarp = textString.split(' ')
+		console.log(textScarp)
+		var l = textScarp.length
+		var newTextScarp = []
+		for (var i = 0; i <= l - 1; i ++) {
+			if (textScarp[i] != "") {
+				newTextScarp.push(textScarp[i])
+			}
+		}
+		var newStringText = newTextScarp.join(' ')
+		console.log(newStringText)
+	</script>
+</body>
+</html>

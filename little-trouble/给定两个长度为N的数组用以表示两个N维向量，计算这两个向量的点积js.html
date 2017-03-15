@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr1 = [1, 2, 3]
+		var arr2 = [4, 5, 6]
+		var product = 0
+		function getVector() {
+			var l = arr1.length
+			var oneTypeProduct
+			for (var i = 0; i < l; i++) {
+				oneTypeProduct = arr1[i] * arr2[i]
+				product = product + oneTypeProduct
+			}
+			return product
+		}
+		getVector()
+		console.log(product)
+	</script>
+</body>
+</html>

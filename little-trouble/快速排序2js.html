@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function quickSort(a, start, end){
+			debugger;
+			if (start === undefined) {
+				start = 0
+			}
+			if (end === undefined) {
+				end = a.length - 1
+			}
+			if (end - start < 1) {
+				return
+			}
+			var choosed = a[parseInt((start + end)/2)]
+			var left = start
+			var right = end
+			var temp
+			while (true) {
+				while (a[left] < choosed && left < right) {
+					left++
+				}
+				while (a[right] > choosed && left < right) {
+					right--
+				}
+				if (left == right) {
+					break
+				}
+				temp = a[left]
+				a[left] = a[right]
+				a[right] = temp
+			}
+			quickSort(a, start, left - 1)
+			quickSort(a, left + 1, end)
+			return a
+		}
+	quickSort([2, 4, 1, 3, 5, 9, 7, 6, 8, 0])
+	</script>
+</body>
+</html>
+

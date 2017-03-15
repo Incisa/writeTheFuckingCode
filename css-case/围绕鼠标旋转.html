@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.fires {
+			position: fixed;
+			width: 50px;
+			height: 50px;
+			border-radius: 50px;
+			background-color: #fcf;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="fires"></div>
+	<div class="fires"></div>
+	<div class="fires"></div>
+</body>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+	var fires = $('.fires')
+	var fire1 = fires[0]
+	var fire2 = fires[1]
+	var fire3 = fires[2]
+	var mx = window.innerWidth/2
+	var my = window.innerHeight/2
+	var radius = 100
+
+	function curve(t) {
+		var r = radius * (Math.sin(3 * t) + 2)
+		var x = r * Math.cos(t)
+		var y = r * Math.sin(t)
+		return [x, y]
+	}
+	function runAnimate(time) {
+		var pi = Math.PI
+		var degree = time/500
+		var d1 = degree
+		var d2 = degree + 2 * pi / 3
+		var d3 = degree + 4 * pi / 3
+		with(Math) {
+			var [x1, y1] = curve(d1)
+			var [x2, y2] = curve(d2)
+			var [x3, y3] = curve(d3)
+
+		}
+		fire1.style.top = my + y1 + 'px'
+		fire1.style.left = mx + x1 + 'px'
+		fire2.style.top = my + y2 + 'px'
+		fire2.style.left = mx + x2 + 'px'
+		fire3.style.top = my + y3 + 'px'
+		fire3.style.left = mx + x3 + 'px'
+
+		requestAnimationFrame(runAnimate)
+	}
+
+	requestAnimationFrame(runAnimate)
+
+	$(window).mousemove(function(event) {
+		mx = event.clientX
+		my = event.clientY
+	})
+</script>
+</html>

@@ -7,7 +7,6 @@
 </head>
 <body>
 	<div id="todo">
-
 		<div class="title">todos</div>
 		<input class="todo-list-input-checkbox" type="checkbox" v-model="isAllSelected" @click="toggleSelectorAll">
 		<div class="todo-list-input">
@@ -15,14 +14,17 @@
 		</div>
 		<ul class="todo-text-lists">
 			<li :class="{done: todo.isDone}" v-for="(todo, index) in currentShowingTodos">
-				<input id="checkbox-list" class="todo-text-list-checkbox" type="checkbox" v-model="todo.isDone">
-				<label class="todo-text-list-checkbox-diy" for="checkbox-list"></label>
+				<label>
+					<a href="#" class="todo-text-list-checkbox-diy diy-notDone" v-show="!todo.isDone" @click="check(index)"></a>
+					<a href="#" class="todo-text-list-checkbox-diy diy-done" v-show="todo.isDone" @click="check(index)"></a>
+					<input id="checkbox-list" class="todo-text-list-checkbox" type="checkbox" v-model="todo.isDone">
+				</label>
 				<span class="todo-text-list-textarea" v-show="!todo.isEditing" @dblclick="todo.isEditing = true">{{todo.content}}</span>
 				<input class="checkbox-primary" v-show="todo.isEditing" @keyup.enter="todo.isEditing = false" @mouseover="$event.target.select()" @blur="todo.isEditing = false" type="text" v-model="todo.content">
 				<div class="todo-text-list-delbtn" @click="delTodo(index)"></div>
 			</li>
 		</ul>
-		<div class="todo-footer">
+		<div class="todo-footer" v-show="showFooter">
 			<span class="todo-fooder-count">{{unDoneCount}} {{unDoneCount < 2 ? 'items' : 'items'}} left</span>
 			<ul>
 				<li :class="{selected:showing == 'all'}" @click="showing='all'">All</li>
@@ -46,7 +48,7 @@
 			// 	content: 'feed cats'
 			// }
 			],
-			showing: 'all'
+			showing: 'all',
 		},
 		computed: {
 			isAllSelected: function() {
@@ -68,6 +70,9 @@
 			},
 			haveCompleted: function() {
 				return this.todos.some(it => it.isDone == true)
+			},
+			showFooter: function() {
+				return this.todos.length
 			}
 		},
 		methods: {
@@ -90,6 +95,9 @@
 			},
 			delTodo: function(index) {
 				this.todos.splice(index, 1)
+			},
+			check: function(index) {
+				this.todos[index].isDone = !this.todos[index].isDone
 			}
 		}
 	})

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mousemove</title>
+	<style>
+		.drag {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			cursor: all-scroll;
+		}
+	</style>
+</head>
+<body>
+	<div class="drag" style="left:300px; top:200px; background-color: #dfd;"></div>
+	<div class="drag" style="left:300px; top:200px; background-color: #abd;"></div>
+	<div class="drag" style="left:300px; top:200px; background-color: #aac;"></div>
+</body>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+	var mx, my, initX, initY
+	var draging
+	var maxZIndex = 1
+	$(window).on('mousedown', function(event){
+		console.log(event)
+		mx = event.clientX
+		my = event.clientY
+		initX = parseInt(event.target.style.left)
+		initY = parseInt(event.target.style.top)
+		draging = event.target
+		event.target.style.zIndex = maxZIndex++
+	}).mousemove(function(event){
+		if (draging) {
+			let x = event.clientX
+			let y = event.clientY
+			let dx = x - mx
+			let dy = y - my
+			console.log(dx, dy)
+
+			// let targetX = initX + dx
+			// let targetY = initY + dy
+			
+			$(draging).css({
+				left: initX + dx,
+				top: initY + dy,
+			})
+		}
+	}).mouseup(function(){
+		draging = null
+	})
+</script>
+</html>

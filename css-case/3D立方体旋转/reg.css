@@ -1,0 +1,88 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	perspective: 1000px;
+}
+
+.main h3 {
+	margin: 200px 0 0 300px;
+}
+
+.box {
+	position: relative;
+	transform-style: preserve-3d;
+	perspective-origin: -50% -50%;
+	/* background-color: #ccc; */
+	width: 200px;
+	height: 200px;
+  margin: 100px auto;
+}
+
+.box * {
+	width: 200px;
+	height: 200px;
+	font-size: 80px;
+	font-weight: 800;
+	color: #aaa;
+	text-align: center;
+	line-height: 200px;
+	position: absolute;
+	transition: transform 1s linear;
+}
+
+.box01 {
+	background-color: rgba(160, 202, 421, 0.5);
+}
+.box02 {
+	background-color: rgba(58, 209, 68, 0.5);
+}
+.box03 {
+	background-color: rgba(213, 240, 62, 0.5);
+}
+.box04 {
+	background-color: rgba(62, 240, 210, 0.5);
+}
+.box05 {
+	background-color: rgba(82, 48, 219, 0.5);
+}
+.box06 {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+
+/* ------Hover------ */
+
+.box:hover .box01 {
+	transform: translateZ(-100px);
+}
+.box:hover .box02 {
+	transform: translateZ(100px);
+}
+.box:hover .box03 {
+	transform: translateY(100px) rotateX(90deg);
+}
+.box:hover .box04 {
+	transform: translateY(-100px) rotateX(90deg);
+}
+.box:hover .box05 {
+	transform: translateX(-100px) rotateY(90deg);
+}
+.box:hover .box06 {
+	transform: translateX(100px) rotateY(90deg);
+}
+
+
+.box:hover {
+	animation: boxRotate 8s 1s infinite;
+}
+
+@keyframes boxRotate {
+	0% {
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+	100% {
+		transform: rotateX(720deg) rotateY(720deg);
+	}
+}

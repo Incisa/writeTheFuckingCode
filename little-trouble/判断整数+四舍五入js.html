@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 判断整数
+		var isInteger = function(x) {
+			if (parseInt(x) == x) {
+				return true
+			}
+			return false
+		}
+		// -------------------------------
+		// 四舍五入
+		var toInt = function(n) {
+			return n - (n % 1)
+		}
+		var round = function(n) {
+			return parseInt(n + 0.5)
+		}		
+	</script>
+</body>
+</html>
+

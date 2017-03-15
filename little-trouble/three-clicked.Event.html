@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var i = 0
+		function openAlert() {
+			setTimeout("i = 0",600)
+			i = i + 1
+			if (i === 3) {
+				alert("clicked three !!!")
+				i = 0
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="button" onclick="openAlert()">clicked me three!</button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var n = +prompt()
+		var left = 0
+		var right = n
+
+		var middle = (left + right) / 2
+
+		while (Math.abs(middle * middle - n) > 0.00001) {
+			if (middle * middle > n) {
+				right = middle
+				middle = (left + right) / 2
+			}
+			if (middle * middle < n) {
+				left = middle
+				middle = (right + left) / 2
+			}
+		}
+
+		console.log(middle)
+	</script>
+</body>
+</html>

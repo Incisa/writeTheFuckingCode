@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function quickScork2(a, start, end){
+			debugger;
+			if (start === undefined) {
+				start = 0
+			}
+			if (end === undefined) {
+				end = a.length
+			}
+			if (end - start < 1) {
+				return
+			}
+			var choosed = a[0]
+			var left = start
+			var right = end
+			var temp
+			while (true) {
+				while (a[right] > choosed && left < right) {
+					right--
+				}
+				while (a[left] < choosed && left < right) {
+					left++
+				}
+				if (left == right) {
+					break
+				}
+				temp = a[left]
+				a[left] = a[right]
+				a[right] = temp
+			}
+			quickScork2(a, start, left - 1)
+			quickScork2(a, left + 1, end)
+			return a
+		}
+	quickScork2([2, 4, 1, 3, 5, 9, 7, 6, 8, 0])
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		P {
+			position: absolute;
+			margin-top: 50vh;
+			margin-left: 50vw;
+		}
+		p img {
+			display: block;
+			width: 200px;
+			height: 200px;
+			background-color: #cfc;
+			position: absolute;
+		}
+		p span {
+			position: absolute;
+			display: inline-block;
+			width: 5px;
+			height: 5px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<!-- <button>chick me!</button> -->
+	<p><img src="pictureLoop.jpg"></p>
+	<script>
+		// var button = document.querySelector('button')
+		var cat = document.querySelector('img')
+		var lastTime = null
+		var p = document.querySelector('p')
+		var angle = 0
+		function animate(time) {
+			if (lastTime != null) {
+				angle += (time - lastTime) * 0.001
+			}
+			lastTime = time
+			var top = Math.sin(2*angle)* 1080/3 +'px'
+			var left = Math.cos(3*angle)* 1920/3 +'px'
+			cat.style.top = top 
+			cat.style.left = left
+			var node = document.createElement('span')
+			node.style.top = top 
+			node.style.left = left
+			p.appendChild(node)
+			requestAnimationFrame(animate)
+		}
+		requestAnimationFrame(animate)
+	</script>
+</body>
+</html>

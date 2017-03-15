@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var n = +prompt()
+		var allYueSum = 0
+		for (var i = 1; i <= parseInt(n / 2); i++) {
+			if (n % i == 0) {
+				allYueSum += i 
+			}
+		}
+		if (allYueSum == n) {
+			console.log(n,"是一个完全数")
+		} else {
+			console.log(n,"不是完全数")
+		}
+	</script>
+</body>
+</html>

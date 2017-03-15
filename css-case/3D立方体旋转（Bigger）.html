@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		table{
+			border-collapse: collapse;
+		}
+		td {
+		  width: 30px;
+		  height: 30px;
+		}
+		section {
+			position: relative;
+			width: 500px;
+			height: 500px;
+			margin: 200px auto;
+			transform-style: preserve-3d;
+			animation: circle 10s linear infinite;
+		}
+		@keyframes circle {
+			from {
+				transform: rotateY(0);
+			}
+			to {
+				transform: rotateY(360deg);
+			}
+		}
+		table {
+			position: absolute;
+			width: 480px;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			opacity: .2;
+		}
+		body {
+			perspective: 800px;
+		}
+		.deg0.tra0 {
+			transform: translateZ(-240px);
+		}
+		.deg0.tra1 {
+			transform: translateZ(-208px);
+		}
+		.deg0.tra2 {
+			transform: translateZ(-176px);
+		}
+		.deg0.tra3 {
+			transform: translateZ(-144px);
+		}
+		.deg0.tra4 {
+			transform: translateZ(-112px);
+		}
+		.deg0.tra5 {
+			transform: translateZ(-80px);
+		}
+		.deg0.tra6 {
+			transform: translateZ(-48px);
+		}
+		.deg0.tra7 {
+			transform: translateZ(-16px);
+		}
+		.deg0.tra8 {
+			transform: translateZ(16px);
+		}
+		.deg0.tra9 {
+			transform: translateZ(48px);
+		}
+		.deg0.tra10 {
+			transform: translateZ(80px);
+		}
+		.deg0.tra11 {
+			transform: translateZ(112px);
+		}
+		.deg0.tra12 {
+			transform: translateZ(144px);
+		}
+		.deg0.tra13 {
+			transform: translateZ(176px);
+		}
+		.deg0.tra14 {
+			transform: translateZ(208px);
+		}
+		.deg0.tra15 {
+			transform: translateZ(240px);
+		}
+
+		.deg1.tra0 {
+			transform: rotateY(90deg) translateZ(-240px);
+		}
+		.deg1.tra1 {
+			transform: rotateY(90deg) translateZ(-208px);
+		}
+		.deg1.tra2 {
+			transform: rotateY(90deg) translateZ(-176px);
+		}
+		.deg1.tra3 {
+			transform: rotateY(90deg) translateZ(-144px);
+		}
+		.deg1.tra4 {
+			transform: rotateY(90deg) translateZ(-112px);
+		}
+		.deg1.tra5 {
+			transform: rotateY(90deg) translateZ(-80px);
+		}
+		.deg1.tra6 {
+			transform: rotateY(90deg) translateZ(-48px);
+		}
+		.deg1.tra7 {
+			transform: rotateY(90deg) translateZ(-16px);
+		}
+		.deg1.tra8 {
+			transform: rotateY(90deg) translateZ(16px);
+		}
+		.deg1.tra9 {
+			transform: rotateY(90deg) translateZ(48px);
+		}
+		.deg1.tra10 {
+			transform: rotateY(90deg) translateZ(80px);
+		}
+		.deg1.tra11 {
+			transform: rotateY(90deg) translateZ(112px);
+		}
+		.deg1.tra12 {
+			transform: rotateY(90deg) translateZ(144px);
+		}
+		.deg1.tra13 {
+			transform: rotateY(90deg) translateZ(176px);
+		}
+		.deg1.tra14 {
+			transform: rotateY(90deg) translateZ(208px);
+		}
+		.deg1.tra15 {
+			transform: rotateY(90deg) translateZ(240px);
+		}
+
+		.deg2.tra0 {
+			transform: rotateZ(90deg) translateZ(-240px);
+		}
+		.deg2.tra1 {
+			transform: rotateZ(90deg) translateZ(-208px);
+		}
+		.deg2.tra2 {
+			transform: rotateZ(90deg) translateZ(-176px);
+		}
+		.deg2.tra3 {
+			transform: rotateZ(90deg) translateZ(-144px);
+		}
+		.deg2.tra4 {
+			transform: rotateZ(90deg) translateZ(-112px);
+		}
+		.deg2.tra5 {
+			transform: rotateZ(90deg) translateZ(-80px);
+		}
+		.deg2.tra6 {
+			transform: rotateZ(90deg) translateZ(-48px);
+		}
+		.deg2.tra7 {
+			transform: rotateZ(90deg) translateZ(-16px);
+		}
+		.deg2.tra8 {
+			transform: rotateZ(90deg) translateZ(16px);
+		}
+		.deg2.tra9 {
+			transform: rotateZ(90deg) translateZ(48px);
+		}
+		.deg2.tra10 {
+			transform: rotateZ(90deg) translateZ(80px);
+		}
+		.deg2.tra11 {
+			transform: rotateZ(90deg) translateZ(112px);
+		}
+		.deg2.tra12 {
+			transform: rotateZ(90deg) translateZ(144px);
+		}
+		.deg2.tra13 {
+			transform: rotateZ(90deg) translateZ(176px);
+		}
+		.deg2.tra14 {
+			transform: rotateZ(90deg) translateZ(208px);
+		}
+		.deg2.tra15 {
+			transform: rotateZ(90deg) translateZ(240px);
+		}
+	</style>
+</head>
+<body>
+<section>
+	<script type="text/javascript">
+		for(var l=0; l<3; l++){
+			for(var k=0; k<16; k++){
+				document.write('<table class="deg' + l + ' tra' + k + '"><body>')
+				for(var i=0; i<16; i++){
+					document.write('<tr>')
+					for(var j=0; j<16; j++){
+						document.write('<td style="background: ' + col(k, i, j) + ';"></td>')
+					}
+					document.write('</tr>')
+				}
+				document.write('</table></body>')
+			}
+		}
+		function colorIn(n){
+			switch(n){
+				case 0:
+					return '0'
+				case 1:
+					return '1'
+				case 2:
+					return '2'
+				case 3:
+					return '3'
+				case 4:
+					return '4'
+				case 5:
+					return '5'
+				case 6:
+					return '6'
+				case 7:
+					return '7'
+				case 8:
+					return '8'
+				case 9:
+					return '9'
+				case 10:
+					return 'a'
+				case 11:
+					return 'b'
+				case 12:
+					return 'c'
+				case 13:
+					return 'd'
+				case 14:
+					return 'e'
+				case 15:
+					return 'f'
+			}
+		}
+		function col(r, g, b){
+			return '#' + colorIn(r) + colorIn(g) + colorIn(b)
+		}
+	</script>
+</section>
+<script type="text/javascript">
+	document.getElementsByClassName('')
+</script>
+<!-- <script type="text/javascript">
+	for(var di = 0; di<3; di++){
+		for(var ti = 0; ti<16; ti ++){
+			document.getElementsByClassName('deg' + di + ' tra' + ti)[0].style.transform = 'rotateZ(' + (90*di-90) + 'deg) translateZ(' + (32ti-240) + 'px);'
+		}
+	}
+</script> -->
+</body>
+</html>

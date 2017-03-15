@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		span {
+			display: block;
+			width: 50px;
+			height: 50px;
+			/* border-radius: 50%; */
+			position: fixed;
+			background-image: url(https://ss0.baidu.com/6LZXsjikBxIFlNKl8IuM_a/tb/%E6%BB%91%E7%A8%BD%E8%80%81%E7%89%88.png);
+			background-size: 50px 50px;
+			background-repeat: no-repeat; 
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var n = 200
+		while (n--) {
+			document.write('<span style= "left: '+Math.random()*100+50+'vw; top: '+Math.random()*100+50+'vh;"></span>')
+		}
+	</script>
+</body>
+</html>

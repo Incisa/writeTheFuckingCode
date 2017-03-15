@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 题目：把一句话中的单词和字母顺序全部调转。
+		 * 例："the quick brown fox jumps over the lazy dog"
+		 * 输出"god yzal eht revo spmuj xof nworb kciuq eht""
+		 */
+		
+		var stringText = "the quick brown fox jumps over the lazy dog"
+		var textScarp = stringText.split('')
+		var newTextScarp = []
+		for (var i = 0; i <= stringText.length - 1; i ++) {
+			newTextScarp.unshift(textScarp[i])
+		}
+		var newStringText = newTextScarp.join('')
+		console.log(newStringText)
+	</script>
+</body>
+</html>

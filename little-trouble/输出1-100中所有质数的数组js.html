@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = []
+		for (i = 2; i <= 100; i++) {
+			var n = 0
+			for (j = 1; j <= i; j++) {
+				(i % j == 0) && n++;
+			}
+			(n == 2) && arr.push(i)
+		}
+		console.log(arr)
+	</script>
+</body>
+</html>

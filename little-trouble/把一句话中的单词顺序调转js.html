@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 题目：把一句话中的单词顺序调转。
+		 * 例："the quick brown fox jumps over the lazy dog"
+		 * 输出"dog lazy the over jumps fox brown quick the"
+		 */
+		
+		var stringText = "the quick brown fox jumps over the lazy dog"
+		var textScarp = stringText.split(' ')
+		var newTextScarp = []
+
+		for (var i = 0; i <= textScarp.length - 1; i ++) {
+			newTextScarp.unshift(textScarp[i])
+		}
+
+		var newStringText = newTextScarp.join(' ')
+		console.log(newStringText)
+	</script>
+</body>
+</html>

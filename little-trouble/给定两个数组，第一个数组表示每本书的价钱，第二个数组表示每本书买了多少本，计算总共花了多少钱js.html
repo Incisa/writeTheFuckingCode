@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr1 = [35.6, 45.8, 23.5, 89, 42]
+		var arr2 = [4, 3, 8, 2, 20]
+		var allPrice = 0
+		function getPrice() {
+			var l = arr2.length
+			var oneTypePrice
+			for (var i = 0; i < l; i++) {
+				oneTypePrice = arr1[i] * arr2[i]
+				allPrice = allPrice + oneTypePrice
+			}
+			return allPrice
+		}
+		getPrice()
+		console.log(allPrice)
+
+	</script>
+</body>
+</html>

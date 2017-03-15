@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		/**
+		 * 题目：猴子选王。有n个猴子，依次报数，报到m的猴子退出，退出的猴子的后面一个接着报数。
+		 * 最终剩下的猴子为王。告知为王的猴子的编号。
+		 */
+		debugger;
+		function monkey(n, m) {
+			var mkStatus = new Array(n)
+			for (var i = 0; i <= n - 1; i ++) {
+				mkStatus[i] = true
+			}
+
+			var turn = 0
+			var monkeyRemaining = n 
+			for (var i = 0;;i ++) {
+				var current = i % n  
+				if (mkStatus[current] == true) {
+					turn ++
+				}
+				if (turn == m ) {
+					mkStatus[current] = false
+					turn = 0
+					monkeyRemaining --
+					if (monkeyRemaining == 1) {
+						break
+					}
+				}
+			}
+
+			for (var i = 0; i <= mkStatus.length; i ++) {
+				if (mkStatus[i] == true) {
+					console.log(i + 1)
+				}
+			}
+		}
+	</script>
+</body>
+</html>

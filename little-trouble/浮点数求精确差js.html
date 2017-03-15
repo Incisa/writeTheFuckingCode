@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var m = +prompt()
+		var n = +prompt()
+		var fangDaCiShu = 0	
+		
+		while (parseInt(m) != m || parseInt(n) != n) {
+			m *= 10
+			n *= 10
+			fangDaCiShu++
+		}
+
+		var diff = m - n
+
+		for (var i = 1; i <= fangDaCiShu; i++) {
+			diff /= 10
+		}
+
+		alert(diff)
+	</script>
+</body>
+</html>

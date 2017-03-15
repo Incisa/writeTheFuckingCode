@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 题目：字符串展开。把字符串中包含有类似“a-g”的字符串展开成完整形式。
+		 * 例："abc-fgx-z0-9"输出"abcdefgxyz0123456789"
+		 */
+		
+		var stringText = "abc-fgx-z0-9"
+		var textScarp = stringText.split('')
+		var allAlphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']
+		var count = 0
+
+		for (var i = 0; i <= 36; i ++) {
+			if (textScarp[i] == '-') {
+				count ++
+				var before = textScarp[i - 1]
+				var after = textScarp[i + 1]
+				for (var j = 0; j <= 36; j++) {
+					if (allAlphabet[j] == before) {
+						textScarp.splice(i, 0, allAlphabet[j + 1])
+						before = 1 + before
+					}
+					if (allAlphabet[j + 2] == after) {
+						break
+					}
+				}
+			}
+		}
+
+		for (var k = 0; k <= 36 + count; k++) {
+			if (textScarp[k] == '-') {
+				textScarp.splice(k,1)
+			}
+		}
+		var alltext = textScarp.join('')
+		console.log(alltext)
+	</script>
+</body>
+</html>

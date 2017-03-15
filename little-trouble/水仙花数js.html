@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		debugger;
+
+		var isSxh = function(n) {
+			var initial = n
+
+			var l = numLength(n)
+			var digitSum = 0
+			var digit 
+			var dn 
+			var counter
+			while (n > 1) {
+				digit = n % 10
+				dn = 1
+				counter = l
+				while (counter--){
+					dn = dn * digit
+				}
+				digitSum += dn 
+				n = parseInt(n / 10)
+			}
+			console.log(digitSum)
+		}
+		// for (var i = 0; i <= 10000; i++) {
+		// 	if 
+		// }
+		// 
+		var numLength = function (n) {
+			var l = 0
+			while (n > 0) {
+				l++
+				n = parseInt(n / 10)
+			}
+			return 1
+		}
+	</script>
+</body>
+</html>

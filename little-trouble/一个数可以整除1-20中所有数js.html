@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var ex = function() {
+		for (var i = 20; ; i++) {
+			var n = 0
+			for (var j = 1; j <= 20; j++) {
+				(i % j == 0) && ++n;
+			}
+			if (n == 20) {
+				console.log(i)
+				break
+			}
+		}
+	}
+
+	ex()
+	</script>
+</body>
+</html>

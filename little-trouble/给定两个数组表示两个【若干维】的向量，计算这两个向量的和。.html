@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr1 = [1, 2, 3]
+		var arr2 = [4, 5, 6]
+		var vector = []
+		function getVector() {
+			var l = arr2.length
+			var oneTypeVector
+			for (var i = 0; i < l; i++) {
+				oneTypeVector = arr1[i] + arr2[i]
+				vector.push(oneTypeVector)
+			}
+			return vector
+		}
+		getVector()
+		console.log(vector)
+	</script>
+</body>
+</html>

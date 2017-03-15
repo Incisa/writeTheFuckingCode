@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr 
+		var Num
+		function getNumber() {
+			var l = arr.length
+			var t
+			Num = 0
+			for (var i = 0; i < l; i++) {
+				t = arr[i] * Math.pow(10,(l - 1 - i))
+				Num = Num + t
+			}
+			return Num 
+		}
+
+		arr = [3,5,8,6]
+		getNumber()
+		var digit01 = Num 
+		arr = [3,7,8,8,9]
+		getNumber()
+		var digit02 = Num
+
+		var result = digit01 + digit02
+		var newArr = []
+
+		function getArray() {
+			var l = result.toString().length
+			for (var i = 1; i <= l; i++) {
+				var arrNumber = result
+				arrNumber = arrNumber % 10
+				newArr.unshift(arrNumber)
+				result = parseInt(result / 10)
+			}
+			return newArr
+		}
+		getArray()
+		console.log(newArr)
+	</script>	
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function fx(n) {
+			if (n == 1 || n == 2) {
+				return 1
+			} else {
+				return fx(n) == fx(n - 1) + fx(n - 2)
+			}
+		}
+		// fx(5)
+	</script>
+</body>
+</html>

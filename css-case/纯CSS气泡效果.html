@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<style type="text/css">
+	body {
+		padding-top: 60px;
+	}
+	div[class="a"] {
+		width: 120px;
+		height: 60px;
+		border: 3px solid #000;
+		border-radius: 10px;
+		margin: 200px auto;
+	}
+	div[class="a"] span {
+		display: block;
+		position: relative;
+		margin: 13px auto;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 24px;
+	}
+	div[class="a"] span:hover::before, div[class="a"] span:hover::after{
+  	opacity: 1;
+  }
+  div[class="a"] span:hover::before {
+  	top: 64px;
+	}
+	div[class="a"] span:hover::after {
+  	top: 48px;
+	}
+	div[class="a"] span::before {
+		content: attr(data_use);
+		background-color: #cfc;
+		font-size: 40px;
+		border: 3px solid #000;
+		border-radius: 10px;
+		white-space: pre;
+		position: absolute;
+		top: 46px;
+		left: 46px;
+		opacity: 0;
+		transition: all .4s linear, top .4s linear;
+	}
+	div[class="a"] span::after {
+		content: "";
+		font-size: 0;
+		border: 8px solid #000;
+		border-color: transparent transparent #000;
+		position: absolute;
+		top: 30px;
+		left: 54px;
+		opacity: 0;
+		transition: all .4s linear, top .4s linear;
+	}
+	/* ------------------------------ */
+	div[class="b"] {
+		width: 120px;
+		height: 60px;
+		border: 3px solid #000;
+		border-radius: 10px;
+		margin: 200px auto;
+	}
+	div[class="b"] span {
+		display: block;
+		position: relative;
+		margin: 13px auto;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 24px;
+	}
+	div[class="b"] span:hover::before, div[class="b"] span:hover::after{
+  	opacity: 1;
+  }
+  div[class="b"] span:hover::before {
+  	left: -232px;
+	}
+	div[class="b"] span:hover::after {
+  	left: -16px;
+	}
+	div[class="b"] span::before {
+		content: attr(data_use);
+		background-color: #cfc;
+		font-size: 40px;
+		border: 3px solid #000;
+		border-radius: 10px;
+		white-space: pre;
+		position: absolute;
+		top: 16px;
+		left: -202px;
+		opacity: 0;
+		transition: all .4s linear, right .4s linear;
+	}
+	div[class="b"] span::after {
+		content: "";
+		font-size: 0;
+		border: 8px solid #000;
+		border-color: transparent transparent transparent #000;
+		position: absolute;
+		top: 24px;
+		left: 14px;
+		opacity: 0;
+		transition: all .4s linear, right .4s linear;
+	}
+</style>
+<body>
+	<div class="a"><span data_use="What's up?">hover me</span></div>
+	<div class="b"><span data_use="What's up?">hover me</span></div>
+</body>
+</html>
