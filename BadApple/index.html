@@ -39,16 +39,38 @@
 	<audio src="music.mp3" id="audio"></audio>
 
 	<script>
+		// 图片缓存加载
+		
+		for (var i = 0; i <= 4380; i++) {
+			new Image().src = 'img/badapple0' + turnNumber(i) + '.jpg'
+		}
+
+
+		//轮播图片src上那个恼人的数字，从0000开始到4380。
+		function turnNumber(index) {
+			var arr = index.toString().split('')
+			for (var i = 0; arr.length < 4; i++) {
+				if (arr.length < 4) {
+					arr.unshift('0')
+				} else {
+					break
+				}
+			}
+			return arr.join('')
+		}
+
+		window.onload = function() {
+
+
 		var cv = document.getElementById('cv')
 		var c = cv.getContext('2d')
 		var playButton = document.getElementById('button')
 		var showBox = document.getElementById('showBox')
 		var audio = document.getElementById('audio')
-
-		//图片缓存加载，之后转换。
 		var img = new Image()
+
 		img.src = 'img/badapple00000.jpg'
-		img.onload = translate
+		img.onload = translate // 图片加载完即可转换
 
 
 		//点击开始轮一波
@@ -65,7 +87,7 @@
 			if (index < 4380) {
 				index++
 				img.src = 'img/badapple0' + turnNumber(index) + '.jpg'
-				setTimeout(play, 50)
+				setTimeout(play, 49)
 			} else {
 				img.src = 'img/badapple00000.jpg'
 				index = 1
@@ -73,19 +95,6 @@
 			}
 		}
 
-
-		//轮播图片src上那个恼人的数字，从0000开始到4380。
-		function turnNumber(index) {
-			var arr = index.toString().split('')
-			for (var i = 0; arr.length < 4; i++) {
-				if (arr.length < 4) {
-					arr.unshift('0')
-				} else {
-					break
-				}
-			}
-			return arr.join('')
-		}
 
 
 		// 根据灰度生成相应字符
@@ -146,7 +155,7 @@
 			}
 			showBox.innerHTML = htmlText
 		}
-
+		}
 	</script>
 </body>
 </html>
