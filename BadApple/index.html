@@ -41,7 +41,7 @@
 	<script>
 		// 图片缓存加载
 		
-		for (var i = 0; i <= 4380; i++) {
+		for (var i = 0; i <= 2235; i++) {
 			new Image().src = 'img/badapple0' + turnNumber(i) + '.jpg'
 		}
 
@@ -70,6 +70,7 @@
 		var img = new Image()
 
 		img.src = 'img/badapple00000.jpg'
+
 		img.onload = translate // 图片加载完即可转换
 
 
@@ -84,7 +85,7 @@
 		var index = 1
 
 		function play() {
-			if (index < 4380) {
+			if (index < 2235) {
 				index++
 				img.src = 'img/badapple0' + turnNumber(index) + '.jpg'
 				setTimeout(play, 49)
