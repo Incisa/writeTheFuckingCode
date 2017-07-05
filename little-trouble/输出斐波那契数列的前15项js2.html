@@ -6,12 +6,17 @@
 </head>
 <body>
 	<script>
-		function fx(n) {
-			if (n == 1 || n == 2) {
-				return 1
-			} else {
-				return fx(n) == fx(n - 1) + fx(n - 2)
-			}
+		var cache = {
+    	0: 0,
+    	1: 1
+		};
+
+		function fabonacci(n) {
+				if (typeof cache[n] === 'number') { 
+						return cache[n];
+				}
+				var result = cache[n] = fabonacci(n - 1) + fabonacci(n - 2);
+				return result;
 		}
 		// fx(5)
 	</script>
